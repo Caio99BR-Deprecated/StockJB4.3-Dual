@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permissions>
+    <!--Rename 'com.sonymobile.camera.addon.api'
+        to make camera add-on apps on Google Play invisible to the phone -->
+    <library name="com.sonymobile.camera.addon_restricted.api"
+        file="/system/framework/com.sonymobile.camera.addon_impl.jar"/>
+</permissions>
+ 

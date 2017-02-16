@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permissions>
+    <library name="com.sonyericsson.video_1"
+        file="/system/framework/com.sonyericsson.video.jar"/>
+    <library name="com.sonyericsson.video_2"
+        file="/system/framework/com.sonyericsson.video.jar"/>
+    <library name="com.sonyericsson.video_3"
+        file="/system/framework/com.sonyericsson.video.jar"/>
+</permissions>
