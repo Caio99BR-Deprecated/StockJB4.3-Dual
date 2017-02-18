@@ -1,10 +1,10 @@
-##### Merging of the /util/data/semc_kernel_time_stamp.prop file #####
+##### Merging of the /util/data/semc_kernel_time_stamp.prop file
 ro.build.date=
 ro.build.date=
 ro.build.user=
 ro.build.host=
 
-##### Final patch of properties #####
+##### Final patch of properties
 ro.build.product=D2114
 ro.build.description=falcon_dtv-user 4.3 2.18.J.2.37 Arima.20140205.1344 test-keys
 
@@ -15,19 +15,17 @@ ro.build.version.incremental=ur__Xw
 ro.build.tags=release-keys
 ro.build.fingerprint=Sony/D2114/D2114:4.3/20.0.B.0.69/ur__Xw:user/release-keys
 
-######################## Customized property values #########################
+##### Customized property values
 ro.semc.version.cust=1280-6825
 ro.semc.version.cust_revision=R1A
 ro.somc.customerid=8735
-#############################################################################
 
-
-################# Updating of the SW Version #################
+##### Updating of the SW Version
 ro.semc.version.fs_revision=20.0.B.0.69
 ro.build.id=20.0.B.0.69
 ro.build.display.id=20.0.B.0.69
 
-##### Values from product package metadata #####
+##### Values from product package metadata
 ro.semc.product.model=D2114
 ro.semc.ms_type_id=PM-0674-BV
 ro.semc.version.fs=BRAZIL
@@ -59,12 +57,10 @@ ro.arima.version.sw_variant=user
 ro.arima.version.sw_type=user
 drm.service.enabled=true
 # end build properties
+
 #
 # system.prop for msm8610
 #
-
-# Use reference RIL for initial bringup
-#rild.libpath=/system/lib/libreference-ril.so
 rild.libpath=/vendor/lib/libril-qc-qmi-1.so
 rild.libargs=-d /dev/smd0
 persist.rild.nitz_plmn=
@@ -80,39 +76,34 @@ ril.subscription.types=NV,RUIM
 DEVICE_PROVISIONED=1
 persist.radio.msgtunnel.start=false
 persist.radio.atfwd.start=true
-#20130828 tracy add for force close showing red box around the screen when cpu in high load++
+
+##### 20130828 - tracy:
+##### Add for force close showing red box around the screen when cpu in high load
 persist.sys.strictmode.visual=0
 persist.sys.strictmode.disable=1
-#20130828 tracy add for force close showing red box around the screen when cpu in high load--
-#+ Jabin 130826 - Set preferred network mode to WCDMA preferred
-# Start in WCDMA preferred
-#ro.telephony.default_network=5
-#- Jabin 130826 - Set preferred network mode to WCDMA preferred
 
-#
-# system props for the cne module
-#
+##### System props for the cne module
 persist.cne.feature=1
 
-# Skip /sys/power/wait_for_fb_* nodes and
-# force FB to be always on
+##### Skip /sys/power/wait_for_fb_* nodes and
+##### force FB to be always on
 debug.sf.fb_always_on=1
 debug.composition.type=dyn
 debug.gralloc.map_fb_memory=0
 debug.hwc.dynThreshold=1.5
 dalvik.vm.heapsize=36m
 dev.pm.dyn_samplingrate=1
-#PaulGuo.Can't download settings for Internet & MMS (R2R Download) issue.20130922.Begin.
-#PaulGuo.Can't download settings for Internet & MMS (R2R Download) issue.20130922.End.
+
 ro.hdmi.enable=true
 tunnel.decode=false
-#8x10 does not support tunnel av playback
-#this prop should be set to false all the time
+
+##### 8x10 does not support tunnel av playback
+##### This prop should be set to false all the time
 tunnel.audiovideo.decode=false
 lpa.decode=false
 lpa.use-stagefright=true
 
-#system props for the MM modules
+##### System props for the MM modules
 
 media.stagefright.enable-player=true
 media.stagefright.enable-http=true
@@ -122,87 +113,64 @@ media.stagefright.enable-fma2dp=true
 media.stagefright.enable-scan=true
 mmp.enable.3g2=true
 media.aac_51_output_enabled=true
-#37491 is decimal sum of supported codecs in AAL
-#codecs: AVI AC3 ASF AAC QCP DTS 3G2 MP2TS
+
+##### 37491 is decimal sum of supported codecs in AAL
+##### codecs: AVI AC3 ASF AAC QCP DTS 3G2 MP2TS
 mm.enable.qcom_parser=37491
 
-# VIDC: debug_levels
-# 1:ERROR 2:HIGH 4:LOW 0:NOlogs 7:AllLogs
+##### VIDC: debug_levels
+##### 1:ERROR 2:HIGH 4:LOW 0:NOlogs 7:AllLogs
 vidc.debug.level=1
 
-#
-# system props for widevine
-#
+##### System props for widevine
 persist.gralloc.cp.level3=1
 
-#
-# system props for the data modules
-#
+##### System props for the data modules
 ro.use_data_netmgrd=true
 
-#system props for time-services
+##### System props for time-services
 persist.timed.enable=true
 
-#
-# system prop for opengles version
-#
-# 196608 is decimal for 0x30000 to report version 3
+##### System prop for opengles version
+##### 196608 is decimal for 0x30000 to report version 3
 ro.opengles.version=196608
 
-#
-# System props for telephony
-#+ Jabin 130826 - Set preferred network mode to WCDMA preferred
-# System prop to turn off CdmaLTEPhone always
-#telephony.lteOnCdmaDevice=1
+##### System props for telephony
 telephony.lteOnCdmaDevice=0
-#- Jabin 130826 - Set preferred network mode to WCDMA preferred
 
-# simulate sdcard on /data/media
-#
+##### Simulate sdcard on /data/media
 persist.fuse_sdcard=true
 
-#
-#snapdragon value add features
-#
+##### Snapdragon value add features
 ro.qc.sdk.audio.ssr=false
-##fluencetype can be "fluence" or "fluencepro" or "none"
+##### fluencetype can be: "fluence" or "fluencepro" or "none"
 ro.qc.sdk.audio.fluencetype=none
 
-# Reduce Background apps limit
+##### Reduce Background apps limit
 ro.sys.fw.bg_apps_limit=20
 
-#++ 20131029 tracy modify for fix crosstaslk issue
-# System property for cabl
+##### System property for cabl
 ro.qualcomm.cabl=0
-#-- 20131029 tracy modify for fix crosstaslk issue
 
-#
-#DASH video streaming
-#Specify max allowed resolution/bandwidth for representations
-#Set allowed avsync window during playback
-#
+##### DASH video streaming
+##### Specify max allowed resolution/bandwidth for representations
+##### Set allowed avsync window during playback
 persist.dash.max.rep.resolution=1280*720
 persist.dash.max.rep.bandwidth=4000000
 persist.dash.avsync.window.msec=100
 
-tunnel.audio.encode = false
+tunnel.audio.encode=false
 
-# 20130828 tracy modify for match UI size
+##### 20130828 tracy: Modify for match UI size
 ro.sf.lcd_density=240
-#20130828 tracy modify for match UI size
-# Arima Rockyang added 20130718 - disable strict mode flash on display
-persist.sys.strictmode.visual=0
-persist.sys.strictmode.disable=1
-# Arima Rockyang added end
 
-#+ Jabin 131107 - Legacy RAT supported for SET_NETWORK_SELECTION_MANUAL
+##### Jabin - 131107: Legacy RAT supported for SET_NETWORK_SELECTION_MANUAL
 persist.radio.rat_on=legacy
-#- Jabin 131107 - Legacy RAT supported for SET_NETWORK_SELECTION_MANUAL
 
-#++Wenjen 20140122: Correct Emergency Only state for SIM2
+##### Wenjen - 20140122: Correct Emergency Only state for SIM2
 gsm.isNoServiceOnFstSub=false
 gsm.isNoServiceOnSecSub=false
-#--Wenjen 20140122: Correct Emergency Only state for SIM2
+
 #
 # ADDITIONAL_BUILD_PROPERTIES
 #
