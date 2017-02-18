@@ -29,6 +29,9 @@ symlink("toolbox ", "/system/bin/cat", "/system/bin/chcon", "/system/bin/chmod",
          "/system/bin/umount", "/system/bin/uptime", "/system/bin/vmstat",
          "/system/bin/watchprops", "/system/bin/wipe");
 symlink("mksh", "/system/bin/sh");
+symlink("libGLESv2.so", "/system/lib/libGLESv3.so");
+symlink("Roboto-Bold.ttf", "/system/fonts/DroidSans-Bold.ttf");
+symlink("Roboto-Regular.ttf", "/system/fonts/DroidSans.ttf");
 set_perm_recursive(0, 0, 0755, 0644, "/system");
 set_perm_recursive(0, 2000, 0755, 0755, "/system/bin");
 set_perm(0, 3003, 06755, "/system/bin/ip");

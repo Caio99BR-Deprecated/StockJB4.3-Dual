@@ -3,7 +3,4 @@
 /system/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini     | /data/misc/wifi/WCNSS_qcom_cfg.ini
 /system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin | /data/misc/wifi/WCNSS_qcom_wlan_nv.bin
 /system/etc/firmware/wlan/prima/softmac                | /data/misc/wifi/softmac
-/system/fonts/DroidSans-Bold.ttf                       | Roboto-Bold.ttf
-/system/fonts/DroidSans.ttf                            | Roboto-Regular.ttf
-/system/lib/libGLESv3.so                               | libGLESv2.so
 /system/lib/modules/wlan.ko                            | /system/lib/modules/pronto/pronto_wlan.ko
