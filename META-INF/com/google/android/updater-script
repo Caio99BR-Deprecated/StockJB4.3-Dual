@@ -70,7 +70,6 @@ package_extract_dir("extras/busybox", "/tmp/busybox");
 run_program("/sbin/busybox", "unzip", "/tmp/busybox/UPDATE-Busybox.Installer.v1.26.2-ALL-signed.zip", "META-INF/com/google/android/*", "-d", "/tmp/busybox");
 run_program("/sbin/sh", "/tmp/busybox/META-INF/com/google/android/update-binary", "dummy", "1", "/tmp/busybox/UPDATE-Busybox.Installer.v1.26.2-ALL-signed.zip");
 ui_print("Installing SuperSU v2.79-SR3");
-set_metadata_recursive("/system/su.d", "uid", 0, "gid", 0, "dmode", 0700, "fmode", 0700, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
 package_extract_dir("extras/rootzip", "/tmp/rootzip");
 run_program("/sbin/busybox", "unzip", "/tmp/rootzip/SuperSU-v2.79-SR3.zip", "META-INF/com/google/android/*", "-d", "/tmp/rootzip");
 run_program("/sbin/sh", "/tmp/rootzip/META-INF/com/google/android/update-binary", "dummy", "1", "/tmp/rootzip/SuperSU-v2.79-SR3.zip");
