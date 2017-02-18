@@ -59,5 +59,12 @@ set_perm(0, 0, 04755, "/system/xbin/sysro");
 show_progress(0.1, 10);
 show_progress(0.2, 0);
 package_extract_file("boot.img", "/dev/block/platform/msm_sdcc.1/by-name/boot");
+symlink("/data/misc/wifi/WCNSS_qcom_cfg.ini",
+        "/system/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini");
+symlink("/data/misc/wifi/WCNSS_qcom_wlan_nv.bin",
+        "/system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin");
+symlink("/data/misc/wifi/softmac", "/system/etc/firmware/wlan/prima/softmac");
+symlink("/system/lib/modules/pronto/pronto_wlan.ko",
+        "/system/lib/modules/wlan.ko");
 show_progress(0.2, 10);
 unmount("/system");
