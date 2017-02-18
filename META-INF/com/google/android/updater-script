@@ -1,70 +1,83 @@
 show_progress(0.1, 0);
+ui_print("Installing TeamVee XperiaE1 Stock ROM 4.3");
 format("ext4", "EMMC", "/dev/block/platform/msm_sdcc.1/by-name/system", "0",
        "/system");
 mount("ext4", "EMMC", "/dev/block/platform/msm_sdcc.1/by-name/system",
       "/system");
 package_extract_dir("system", "/system");
+ui_print("Symlinking some files");
 symlink("toolbox ", "/system/bin/cat", "/system/bin/chcon", "/system/bin/chmod",
-         "/system/bin/chown", "/system/bin/clear", "/system/bin/cmp",
-         "/system/bin/cp", "/system/bin/date", "/system/bin/dd",
-         "/system/bin/df", "/system/bin/dmesg", "/system/bin/du",
-         "/system/bin/getenforce", "/system/bin/getevent",
-         "/system/bin/getprop", "/system/bin/getsebool", "/system/bin/grep",
-         "/system/bin/hd", "/system/bin/id", "/system/bin/ifconfig",
-         "/system/bin/iftop", "/system/bin/insmod", "/system/bin/ioctl",
-         "/system/bin/ionice", "/system/bin/kill", "/system/bin/ln",
-         "/system/bin/load_policy", "/system/bin/log", "/system/bin/ls",
-         "/system/bin/lsmod", "/system/bin/lsof", "/system/bin/md5",
-         "/system/bin/mkdir", "/system/bin/mount", "/system/bin/mv",
-         "/system/bin/nandread", "/system/bin/netstat",
-         "/system/bin/newfs_msdos", "/system/bin/notify",
-         "/system/bin/printenv", "/system/bin/ps", "/system/bin/reboot",
-         "/system/bin/renice", "/system/bin/restorecon", "/system/bin/rm",
-         "/system/bin/rmdir", "/system/bin/rmmod", "/system/bin/route",
-         "/system/bin/runcon", "/system/bin/schedtop", "/system/bin/sendevent",
-         "/system/bin/setconsole", "/system/bin/setenforce",
-         "/system/bin/setprop", "/system/bin/setsebool", "/system/bin/sleep",
-         "/system/bin/smd", "/system/bin/start", "/system/bin/stop",
-         "/system/bin/sync", "/system/bin/top", "/system/bin/touch",
-         "/system/bin/umount", "/system/bin/uptime", "/system/bin/vmstat",
-         "/system/bin/watchprops", "/system/bin/wipe");
-symlink("mksh", "/system/bin/sh");
-symlink("libGLESv2.so", "/system/lib/libGLESv3.so");
-symlink("Roboto-Bold.ttf", "/system/fonts/DroidSans-Bold.ttf");
-symlink("Roboto-Regular.ttf", "/system/fonts/DroidSans.ttf");
-set_perm_recursive(0, 0, 0755, 0644, "/system");
-set_perm_recursive(0, 2000, 0755, 0755, "/system/bin");
-set_perm(0, 3003, 06755, "/system/bin/ip");
-set_perm(0, 3003, 02750, "/system/bin/netcfg");
-set_perm(0, 3004, 02755, "/system/bin/ping");
-set_perm(0, 2000, 06750, "/system/bin/run-as");
-set_perm_recursive(1002, 1002, 0755, 0440, "/system/etc/bluetooth");
-set_perm(0, 0, 0755, "/system/etc/bluetooth");
-set_perm(1000, 1000, 0640, "/system/etc/bluetooth/auto_pair_devlist.conf");
-set_perm(1014, 2000, 0550, "/system/etc/dhcpcd/dhcpcd-run-hooks");
-set_perm_recursive(0, 0, 0755, 0555, "/system/etc/ppp");
-set_perm_recursive(0, 2000, 0755, 0644, "/system/vendor");
-set_perm_recursive(0, 2000, 0755, 0644, "/system/vendor/etc");
-set_perm(0, 2000, 0755, "/system/vendor/lib");
-set_perm(0, 2000, 0755, "/system/vendor/lib/egl");
-set_perm(0, 2000, 0755, "/system/vendor/lib/hw");
-set_perm_recursive(0, 2000, 0755, 0755, "/system/xbin");
-set_perm(0, 1000, 0755, "/system/xbin/busybox");
-symlink("/system/xbin/busybox", "/system/bin/busybox");
-run_program("/system/xbin/busybox", "--install", "-s", "/system/xbin");
-set_perm(0, 0, 06755, "/system/xbin/su");
-symlink("/system/xbin/su", "/system/bin/su");
-set_perm(0, 0, 04755, "/system/xbin/sysrw");
-set_perm(0, 0, 04755, "/system/xbin/sysro");
-show_progress(0.1, 10);
-show_progress(0.2, 0);
-package_extract_file("boot.img", "/dev/block/platform/msm_sdcc.1/by-name/boot");
+        "/system/bin/chown", "/system/bin/clear", "/system/bin/cmp",
+        "/system/bin/cp", "/system/bin/date", "/system/bin/dd",
+        "/system/bin/df", "/system/bin/dmesg", "/system/bin/du",
+        "/system/bin/getenforce", "/system/bin/getevent",
+        "/system/bin/getprop", "/system/bin/getsebool", "/system/bin/grep",
+        "/system/bin/hd", "/system/bin/id", "/system/bin/ifconfig",
+        "/system/bin/iftop", "/system/bin/insmod", "/system/bin/ioctl",
+        "/system/bin/ionice", "/system/bin/kill", "/system/bin/ln",
+        "/system/bin/load_policy", "/system/bin/log", "/system/bin/ls",
+        "/system/bin/lsmod", "/system/bin/lsof", "/system/bin/md5",
+        "/system/bin/mkdir", "/system/bin/mount", "/system/bin/mv",
+        "/system/bin/nandread", "/system/bin/netstat",
+        "/system/bin/newfs_msdos", "/system/bin/notify",
+        "/system/bin/printenv", "/system/bin/ps", "/system/bin/reboot",
+        "/system/bin/renice", "/system/bin/restorecon", "/system/bin/rm",
+        "/system/bin/rmdir", "/system/bin/rmmod", "/system/bin/route",
+        "/system/bin/runcon", "/system/bin/schedtop", "/system/bin/sendevent",
+        "/system/bin/setconsole", "/system/bin/setenforce",
+        "/system/bin/setprop", "/system/bin/setsebool", "/system/bin/sleep",
+        "/system/bin/smd", "/system/bin/start", "/system/bin/stop",
+        "/system/bin/sync", "/system/bin/top", "/system/bin/touch",
+        "/system/bin/umount", "/system/bin/uptime", "/system/bin/vmstat",
+        "/system/bin/watchprops", "/system/bin/wipe");
+symlink("/data/misc/wifi/softmac", "/system/etc/firmware/wlan/prima/softmac");
 symlink("/data/misc/wifi/WCNSS_qcom_cfg.ini",
         "/system/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini");
 symlink("/data/misc/wifi/WCNSS_qcom_wlan_nv.bin",
         "/system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin");
-symlink("/data/misc/wifi/softmac", "/system/etc/firmware/wlan/prima/softmac");
 symlink("/system/lib/modules/pronto/pronto_wlan.ko",
         "/system/lib/modules/wlan.ko");
+symlink("libGLESv2.so", "/system/lib/libGLESv3.so");
+symlink("mksh", "/system/bin/sh");
+symlink("Roboto-Bold.ttf", "/system/fonts/DroidSans-Bold.ttf");
+symlink("Roboto-Regular.ttf", "/system/fonts/DroidSans.ttf");
+ui_print("Setting permissions");
+set_perm_recursive(0, 0, 0755, 0644, "/system");
+set_perm_recursive(0, 2000, 0755, 0755, "/system/bin");
+set_perm(0, 1000, 0750, "/system/bin/iptables");
+set_perm(0, 1000, 0750, "/system/bin/tc");
+set_perm(0, 1000, 04750, "/system/bin/diag_mdlog");
+set_perm(0, 2000, 06750, "/system/bin/run-as");
+set_perm(0, 3003, 06755, "/system/bin/ip");
+set_perm(0, 3003, 02750, "/system/bin/netcfg");
+set_perm(0, 3004, 02755, "/system/bin/ping");
+set_perm_recursive(1002, 1002, 0755, 0440, "/system/etc/bluetooth");
+set_perm(1000, 1000, 0640, "/system/etc/bluetooth/auto_pair_devlist.conf");
+set_perm(1014, 2000, 0550, "/system/etc/dhcpcd/dhcpcd-run-hooks");
+set_perm(0, 1000, 0550, "/system/etc/init.qcom.sdio.sh");
+set_perm_recursive(0, 0, 0755, 0555, "/system/etc/ppp");
+set_perm(0, 0, 0555, "/system/etc/ppp/ip-up-vpn");
+set_perm_recursive(0, 2000, 0755, 0644, "/system/vendor");
+set_perm_recursive(0, 0, 0755, 0644, "/system/vendor/lib");
+set_perm_recursive(0, 2000, 0755, 0644, "/system/vendor/lib/drm");
+set_perm(0, 0, 0644, "/system/vendor/lib/drm/libdrmwvmplugin.so");
+set_perm_recursive(0, 2000, 0755, 0644, "/system/vendor/lib/hw");
+set_perm(0, 0, 0644, "/system/vendor/lib/hw/power.qcom.so");
+set_perm(0, 2000, 0755, "/system/vendor/media");
+set_perm_recursive(0, 2000, 0755, 0755, "/system/xbin");
+ui_print("Installing Busybox v1.26.2");
+package_extract_dir("busybox", "/tmp/busybox");
+run_program("/sbin/busybox", "unzip", "/tmp/busybox/UPDATE-Busybox.Installer.v1.26.2-ALL-signed.zip", "META-INF/com/google/android/*", "-d", "/tmp/busybox");
+run_program("/sbin/sh", "/tmp/busybox/META-INF/com/google/android/update-binary", "dummy", "1", "/tmp/busybox/UPDATE-Busybox.Installer.v1.26.2-ALL-signed.zip");
+ui_print("Installing SuperSU v2.79-SR3");
+set_metadata_recursive("/system/su.d", "uid", 0, "gid", 0, "dmode", 0700, "fmode", 0700, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+package_extract_dir("rootzip", "/tmp/rootzip");
+run_program("/sbin/busybox", "unzip", "/tmp/rootzip/SuperSU-v2.79-SR3.zip", "META-INF/com/google/android/*", "-d", "/tmp/rootzip");
+run_program("/sbin/sh", "/tmp/rootzip/META-INF/com/google/android/update-binary", "dummy", "1", "/tmp/rootzip/SuperSU-v2.79-SR3.zip");
+show_progress(0.1, 10);
+show_progress(0.2, 0);
+ui_print("Installing the Boot!");
+package_extract_file("boot.img", "/dev/block/platform/msm_sdcc.1/by-name/boot");
 show_progress(0.2, 10);
 unmount("/system");
+ui_print("Install Done!");
